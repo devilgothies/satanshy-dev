@@ -1,8 +1,18 @@
 on: [push]
+
 jobs:
-  - upload:
-      - name: Upload build to hosting environment
-        uses: Atyn/Simple-SFTP
+  deploy_job:
+    runs-on: ubuntu-latest
+    name: deploy
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: deploy file
+        uses: wlixcc/SFTP-Deploy-Action@v1.0
         with:
-          url: sftp://satanshy:!S4t4nshy@ip-45-79-3-179.cloudezapp.io/srv/satanshycom.2d4f03b3.configr.cloud/www
-          local-directory: build-output
+          username: ${{ secrets.FTP_USERNAME }}
+          server: ${{ secrets.FTP_SERVER }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local_path: './*'
+          remote_path: '/srv/satanshycom.2d4f03b3.configr.cloud/www'
+          args: '-o ConnectTimeout=5'
