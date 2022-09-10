@@ -19,5 +19,5 @@ fetch((api + id), {
     username
   $username.innerHTML = username + "#" + tag
 }).catch(function() {
-  console.warn("Something went wrong. xd");
+  console.warn("Something went wrong.");
 });
