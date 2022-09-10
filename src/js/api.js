@@ -1,4 +1,4 @@
-const api = 'https://discordlookup.mesavirep.xyz/'
+const api = 'https://discord-web-api.glitch.me/discord/user/'
 const id = '484088238403878912'
 
 'use strict';
@@ -11,12 +11,13 @@ fetch((api + id), {
   }
   return Promise.reject(responseJson);
 }).then(function(fieldDescribe) {
-    var avatar = fieldDescribe.avatar.link
-    var username = fieldDescribe.tag
-    document.getElementById("avatar").src = avatar;
-    var $username = document.querySelector('#username'),
-        username
-        $username.innerHTML = username
+  var avatar = fieldDescribe.url
+  var username = fieldDescribe.username
+  var tag = fieldDescribe.discriminator
+  document.getElementById("avatar").src = avatar;
+  var $username = document.querySelector('#username'),
+    username
+  $username.innerHTML = username + "#" + tag
 }).catch(function() {
   console.warn("Something went wrong.");
 });
