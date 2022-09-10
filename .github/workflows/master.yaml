@@ -12,7 +12,7 @@ jobs:
         with:
           username: ${{ secrets.FTP_USERNAME }}
           server: ${{ secrets.FTP_SERVER }}
-          password: ${{ secrets.FTP_PASSWORD }}
+          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }} 
           local_path: './*'
           remote_path: '/srv/satanshycom.2d4f03b3.configr.cloud/www'
           args: '-o ConnectTimeout=5'
