@@ -111,9 +111,8 @@ svg {
     cursor: pointer;
 }
 
-svg#steam {
-    width: 27.5px;
-    margin: 4px;
+svg#github:hover {
+    fill: #4b4b4b;
 }
 
 svg#steam:hover {
@@ -141,7 +140,7 @@ svg#twitter:hover {
 }
 
 .rounded {
-    width: 15vh;
+    width: 13vh;
     margin-bottom: 10px;
     border-top: 1px solid rgb(255, 255, 255);
     border-radius: 5px;
